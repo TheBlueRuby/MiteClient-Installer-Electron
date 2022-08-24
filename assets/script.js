@@ -1,14 +1,9 @@
-const scriptRemote = require('electron').remote;
 
 $(document).ready(function(){
 
     $("#intro").fadeIn(1000).delay(1000)
     $("#introBtn").fadeIn(1000).delay(1000)
-
-    document.getElementById("closeBtn").addEventListener("click", function (e) {
-        var remoteWindow = scriptRemote.getCurrentWindow();
-        remoteWindow.close();
-    }); 
+ 
 });
 
 function startInstall() {

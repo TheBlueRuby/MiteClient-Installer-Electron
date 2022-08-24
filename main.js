@@ -1,10 +1,11 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow } = require('electron');
-const electron = require('electron')
+const electron = require('electron');
+const { app, BrowserWindow } = electron;
+const {ipcMain} = electron;
+const url = require('url');
 const path = require('path');
-const remote = electron.remote;
 
 let mainWindow;
 
@@ -14,7 +15,7 @@ function createWindow() {
     width: 800,
     height: 600,
     webPreferences: {
-      //preload: path.join(__dirname, 'preload.js');
+      preload: path.join(__dirname, 'preload.js')
     }
   });
 
@@ -39,7 +40,6 @@ app.whenReady().then(() => {
         createWindow();
     }
   })
-
 })
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -54,6 +54,6 @@ app.on('window-all-closed', () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-function closeApp(){
+ipcMain.handle('quit-app', () => {
   app.quit();
-}
+});
