@@ -1,0 +1,14 @@
+{
+  "name": "miteclient-installer",
+  "version": "1.0.0",
+  "description": "ElectronJS-Based installer for MiteClient",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "TheBlueRuby",
+  "license": "MIT",
+  "dependencies": {
+    "electron": "^20.0.3"
+  }
+}
